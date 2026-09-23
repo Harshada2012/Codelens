@@ -3,6 +3,7 @@ import cors from "cors";
 import { prisma } from "./db/prisma";
 import repositoryRoutes from "./routes/repository.routes";
 import userRoutes from "./routes/user.routes";
+import authRoutes from "./routes/auth.routes";
 
 const app = express();
 const PORT = 5001;
@@ -10,6 +11,7 @@ const PORT = 5001;
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/repositories", repositoryRoutes);
 
